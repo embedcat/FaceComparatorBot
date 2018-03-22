@@ -10,7 +10,7 @@ class BotLogger:
         self.file = file
         self.log("Bot has been start")
         if startparams:
-            self.log(startparams)
+            self.log(str(startparams))
 
     def log(self, msg, user=None, reply=""):
         if user:
@@ -31,4 +31,3 @@ class BotLogger:
         cur_date = time.strftime("%D")
         cur_time = time.strftime("%H:%M:%S")
         return "----------\n" + str(cur_date) + " " + str(cur_time) + "\n"
-    

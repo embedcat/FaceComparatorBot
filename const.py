@@ -1,6 +1,5 @@
 from enum import Enum, unique
 
-bot_token = '486426595:AAF8DvlyoDMiKOAvErFkrZGLjRZg3sC9o8w'
 file_with_face_suffix = "_face.jpg"
 
 

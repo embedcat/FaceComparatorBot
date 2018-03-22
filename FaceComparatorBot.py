@@ -7,11 +7,11 @@ import threading
 import queue
 import user
 import time
-import sys
 import argparse
+import bot_token
 
 
-bot = telebot.TeleBot(const.bot_token)
+bot = telebot.TeleBot(bot_token.bot_token)
 
 
 def create_parser():
@@ -119,6 +119,7 @@ def reply_help(message):
 if __name__ == "__main__":
     args = create_parser().parse_args()
     print(args)
+    print(type(args))
     log = bot_logger.BotLogger(silent=args.silent, nosavelog=args.no_save_log, startparams=args)
     fc = facecomparator.FaceCompare()
     msg_dict = const.russian
