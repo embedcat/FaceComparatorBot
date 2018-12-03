@@ -10,7 +10,7 @@ class BotLogger:
         self.file = file
         self.log("Bot has been start")
         if startparams:
-            self.log(str(startparams))
+            self.log("Started with arguments: " + str(startparams))
 
     def log(self, msg, user=None, reply=""):
         if user:

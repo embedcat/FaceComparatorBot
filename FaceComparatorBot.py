@@ -18,6 +18,7 @@ def create_parser():
     parser = argparse.ArgumentParser()
     parser.add_argument("-s", "--silent", action="store_true", default=False)
     parser.add_argument("-l", "--no-save-log", action="store_true", default=False)
+    parser.add_argument("-p", "--use-proxy", action="store_true", default=False)
     return parser
 
 
@@ -118,9 +119,10 @@ def reply_help(message):
 
 if __name__ == "__main__":
     args = create_parser().parse_args()
-    print(args)
-    print(type(args))
-    log = bot_logger.BotLogger(silent=args.silent, nosavelog=args.no_save_log, startparams=args)
+    log = bot_logger.BotLogger(silent=args.silent, nosavelog=args.no_save_log, startparams=vars(args))
+    if args.use_proxy:
+        telebot.apihelper.proxy = const.proxylist
+
     fc = facecomparator.FaceCompare()
     msg_dict = const.russian
 
