@@ -129,8 +129,9 @@ if __name__ == "__main__":
     q = queue.Queue()
     t1 = threading.Thread(target=do_work_thread)
     t1.start()
-    try:
-        bot.polling()
-    except Exception as e:
-        log.log("Error: " + str(e))
-        time.sleep(10)
+    while True:
+        try:
+            bot.polling()
+        except Exception as e:
+            log.log("Error: " + str(e))
+            time.sleep(10)
