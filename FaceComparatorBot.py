@@ -9,8 +9,10 @@ import user
 import time
 import argparse
 import bot_token
+import logging
 
 
+telebot.logger.setLevel(logging.INFO)
 bot = telebot.TeleBot(bot_token.bot_token)
 
 
