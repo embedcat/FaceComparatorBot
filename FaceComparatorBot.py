@@ -31,7 +31,7 @@ def do_work_thread():
         file_id, chat_id = item[0], item[-1].chat.id
         user_name, user_id = item[-1].from_user.first_name, item[-1].from_user.id
 
-        cur_user = users.setdefault(user_id, user.User(user_id, fc))
+        cur_user = users.setdefault(user_id, user.User(user_id, fc, user_name=user_name))
         downloaded_file = bot.download_file(bot.get_file(file_id).file_path)
         result = cur_user.photo_process(downloaded_file)
 

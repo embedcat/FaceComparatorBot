@@ -11,8 +11,8 @@ class User:
     fc = None
     save_all_files = False
 
-    def __init__(self, id, fc, save_all_files=True):
-        self.path += str(id) + "/"
+    def __init__(self, id, fc, save_all_files=True, user_name=None):
+        self.path += str(id) + ("" if user_name is None else "_" + user_name) + "/"
         self.fc = fc
         self.save_all_files = save_all_files
         create_folder(self.path)
